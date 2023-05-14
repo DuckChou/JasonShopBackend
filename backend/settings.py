@@ -14,7 +14,6 @@ from pathlib import Path
 
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,8 +31,7 @@ SECRET_KEY = "django-insecure-ps8h3d*lhu-+w7*39vrfrr%8bwtq)^hk-)+!(6wpzb%9p4n%z9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://jasonshop.herokuapp.com']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] 
 
 # Application definition
 
@@ -196,7 +194,8 @@ STATICFILES_DIRS = [
 ]
 
 # for user uploaded images
-# MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -208,8 +207,14 @@ CORS_ALLOW_ALL_ORIGINS = True  # new
 
 STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}}
 
+# AWS_ACCESS_KEY_ID = 'AKIAYK2GKR52EJASQ675'
+# AWS_SECRET_ACCESS_KEY = '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'
+
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+print(AWS_ACCESS_KEY_ID)
+
+print(AWS_SECRET_ACCESS_KEY)
 
 AWS_STORAGE_BUCKET_NAME = 'jasonshop-bucket'
 AWS_QUERYSTRING_AUTH = False
