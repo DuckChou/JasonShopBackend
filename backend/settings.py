@@ -205,18 +205,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True  # new
 
-# STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}}
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# AWS_ACCESS_KEY_ID = 'AKIAYK2GKR52EJASQ675'
-# AWS_SECRET_ACCESS_KEY = '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'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-print(AWS_ACCESS_KEY_ID)
-
-print(AWS_SECRET_ACCESS_KEY)
 
 AWS_STORAGE_BUCKET_NAME = 'jasonshop-bucket'
 AWS_QUERYSTRING_AUTH = False
