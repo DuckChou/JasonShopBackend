@@ -29,9 +29,9 @@ load_dotenv()
 SECRET_KEY = "django-insecure-ps8h3d*lhu-+w7*39vrfrr%8bwtq)^hk-)+!(6wpzb%9p4n%z9"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '3.93.186.207'] 
 
 # Application definition
 
@@ -205,7 +205,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True  # new
 
-STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}}
+# STORAGES = {"default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}}
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # AWS_ACCESS_KEY_ID = 'AKIAYK2GKR52EJASQ675'
 # AWS_SECRET_ACCESS_KEY = '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'
