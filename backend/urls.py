@@ -21,10 +21,11 @@ from django.contrib import admin
 from django.urls import path, include  # new
 
 from django.views.generic import TemplateView  # new
+from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path("", TemplateView.as_view(template_name='index.html')),  # new
+    path("", lambda request:redirect("admin/")),  # new
     path("api/products/", include("base.urls.product_urls")),  # new
     path("api/users/", include("base.urls.user_urls")),  # new
     path("api/orders/", include("base.urls.order_urls")),  # new
